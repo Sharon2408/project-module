@@ -1,7 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
+import {MatAutocompleteSelectedEvent, MatAutocompleteModule} from '@angular/material/autocomplete';
 import {
   FormControl,
   FormsModule,
@@ -11,6 +13,7 @@ import {
 import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+
 
 @Component({
   selector: 'app-chips',
@@ -23,27 +26,26 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
     ReactiveFormsModule,
     MatChipsModule,
     MatIconModule,
+    MatCheckboxModule,MatAutocompleteModule
   ],
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.css'],
 })
 export class ChipsComponent {
-  toppingList: string[] = ['Pizza', 'Burger', 'Bhel'];
-  food: string[] = [];
-  announcer = inject(LiveAnnouncer);
+  food: string[] = ['Pizza', 'Burger', 'Bhel'];
+  topping = new FormControl('')
+  selectedFood: string[] = [];
+ 
 
   remove(food: string) {
-    const index = this.food.indexOf(food);
-
+    const index = this.selectedFood.indexOf(food);
     if (index >= 0) {
-      this.food.splice(index, 1);
-
-      this.announcer.announce(`Removed ${food}`);
+      this.selectedFood.splice(index, 1);
     }
   }
-  selected(value:string): void {
-    this.food.push(value);
-    console.log(value);
-    console.log(this.food)
+  
+  selected(event: MatSelectChange): void {
+    this.selectedFood.push(event.value);
+    
   }
 }
