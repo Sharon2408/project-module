@@ -13,7 +13,7 @@ export class ProductService {
   productsUrl = environment.productsUrl;
 
 getProducts(){
-  return this.http.get<any>(this.productsUrl)
+  return this.http.get<Products>(this.productsUrl)
 }
 
 }

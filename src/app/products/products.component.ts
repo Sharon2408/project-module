@@ -10,13 +10,13 @@ import { ProductService } from 'src/services/product.service';
 export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
-  products: Products[] = [];
+  products: ProductDetails[] = [];
 
 ngOnInit(): void {
   this.productService.getProducts().subscribe({
     next: (res) => {
       this.products = res.products;
-      console.log(res)
+      console.log(res.products)
     },
     error: (errors) =>{
       console.log(errors)

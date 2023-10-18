@@ -13,7 +13,7 @@ export interface ProductDetails{
 }
 
 export interface Products{
-    products:Products[];
+    products:ProductDetails[];
    total:number;
    skip:number;
    limit:number;
