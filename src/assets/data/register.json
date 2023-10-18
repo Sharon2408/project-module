@@ -1,0 +1,23 @@
+{
+  "userdetails": [
+    {
+      "firstname": "Sharon",
+      "email": "sharon@gmail.com",
+      "food": [
+        "Burger"
+      ],
+      "id": 1
+    },
+    {
+      "firstname": "Hemanth",
+      "email": "hemanth@gmail.com",
+      "food": [
+        "Pizza",
+        "Burger"
+      ],
+      "id": 2
+    }
+  ]
+}
+
+
