@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './product-components/products/products.component';
+import { ViewSingleProductComponent } from './product-components/products/view-single-product/view-single-product.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 const routes: Routes = [
-  {
-    path:'', component:HomeComponent
-  },
+
   {
     path:'product',component:ProductsComponent
+  },
+  {
+    path:'single-product/:product_id',component:ViewSingleProductComponent
+  },
+  {
+    path:'error',component:ErrorPageComponent
   }
 ];
 

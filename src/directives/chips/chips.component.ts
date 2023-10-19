@@ -29,7 +29,24 @@ import { MatIconModule } from '@angular/material/icon';
     MatCheckboxModule,MatAutocompleteModule,
     
   ],
-  templateUrl: './chips.component.html',
+  template: `<mat-chip-listbox>
+  <mat-chip *ngFor="let food of selectedFood" (removed)="remove(food)">
+    {{food}}
+    <button matChipRemove>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+</mat-chip-listbox>
+<mat-form-field class="example-full-width">
+  <mat-label>Select Food</mat-label>
+  <mat-select [formControl]="topping" (selectionChange)="selected($event)">
+
+    <mat-option *ngFor="let food of food" [value]="food">{{food}}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="topping.hasError('required')">
+    Food is required</mat-error>
+</mat-form-field>`,
+
   styleUrls: ['./chips.component.css'],
 })
 export class ChipsComponent {

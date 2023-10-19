@@ -14,14 +14,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { ChipsComponent } from '../chips/chips.component';
+import { ChipsComponent } from '../../directives/chips/chips.component';
 
 
 
 @NgModule({
   declarations: [
     UserRegistrationComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -33,7 +34,7 @@ import { ChipsComponent } from '../chips/chips.component';
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
-    ChipsComponent
+    ChipsComponent,
   ]
 })
 export class UserModuleModule { }
