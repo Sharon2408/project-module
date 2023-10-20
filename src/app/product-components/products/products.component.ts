@@ -19,16 +19,16 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts().subscribe({
       next: (res) => {
         this.products = res.products;
-      },
-      error: (errors) => {
-        if(errors.status == 404){
-          console.log('Error happened in viewing single product');
-          this.router.navigate(['/error'])
-        }
-        else if(errors.status == 500){
-          console.log('Internal server error')
-        }
-      },
+       },
+      // error: (errors) => {
+      //   if(errors.status == 404){
+      //     console.log('Error happened in viewing single product');
+      //     this.router.navigate(['/error'])
+      //   }
+      //   else if(errors.status == 500){
+      //     console.log('Internal server error')
+      //   }
+      // },
     });
   }
 
