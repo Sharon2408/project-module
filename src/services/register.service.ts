@@ -12,10 +12,10 @@ export class RegisterService {
 
   register(form: user_details) {
     return this.http.post(this.user_details_url, form).subscribe({
-      next: () => {
+      next: (res) => {
         console.log('success');
       },
-      error: () => {
+      error: (error) => {
         console.log('error');
       },
     });

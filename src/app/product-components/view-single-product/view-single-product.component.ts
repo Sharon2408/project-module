@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetails } from 'src/models/products';
-import { ProductService } from 'src/services/product.service';
+import { ProductService } from 'src/services/getProduct.service';
 
 @Component({
   selector: 'app-view-single-product',

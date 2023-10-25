@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/services/product.service';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { ProductService } from 'src/services/getProduct.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  constructor(public productService: ProductService,private router:Router) {}
 
-constructor(private productService:ProductService){}
+  categories: string[] = [];
+  
 
-categories: string[] =[];
+  ngOnInit(): void {
+    this.productService.getCategories().subscribe({
+      next: (res) => {
+        this.categories = res;
+      },
+      error: (errors) => {},
+    });
+  }
 
-ngOnInit(): void {
-  this.productService.getCategories().subscribe({
-    next: (res)=>{
-      this.categories = res
-    },
-    error: (errors)=>{
-
-    }
-  })
-}
-
+  getCategory(category: string) {
+     this.router.navigate(['category',category])
+  }
 }

@@ -3,3 +3,8 @@
    max-height: 250px;
    overflow-y: scroll;
   }
+  .loader{
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+  }

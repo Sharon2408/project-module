@@ -6,22 +6,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModuleModule } from './user-module/user-module.module';
 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HighlightDirective } from '../directives/highlight.directive';
 import { ChipsComponent } from '../directives/chips/chips.component';
+import { ProductsComponent } from './product-components/products/products.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ViewSingleProductComponent } from './product-components/view-single-product/view-single-product.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+
+// MatUi
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ProductsComponent } from './product-components/products/products.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ViewSingleProductComponent } from './product-components/products/view-single-product/view-single-product.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 // Primeng
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { ViewProductCaegoryWiseComponent } from './product-components/view-product-category-wise/view-product-caegory-wise.component';
+import { FormsModule } from '@angular/forms';
+// Directives
+import { HighlightDirective } from '../directives/highlight.directive';
+import { BackButtonDirective } from '../directives/back-button.directive';
 
 @NgModule({
   declarations: [
@@ -31,6 +40,8 @@ import { ToastModule } from 'primeng/toast';
     NavbarComponent,
     ViewSingleProductComponent,
     ErrorPageComponent,
+    ViewProductCaegoryWiseComponent,
+    BackButtonDirective,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +56,9 @@ import { ToastModule } from 'primeng/toast';
     MatSidenavModule,
     MatListModule,
     ToastModule,
+    MatProgressBarModule,
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
